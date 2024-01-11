@@ -15,7 +15,7 @@ namespace FacturareWorkflow.Domain
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=your_server_name;Database=pssc1;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=localhost;Database=pssc1;Trusted_Connection=True;");
         }
     }
 }

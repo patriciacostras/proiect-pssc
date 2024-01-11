@@ -47,5 +47,10 @@ namespace FacturareWorkflow.Domain.Models
                 return None;
             }
         }
+
+        internal static object TryParse(object lastName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

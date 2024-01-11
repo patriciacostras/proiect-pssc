@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using static FacturareWorkflow.Domain.Models.InvoiceChoice;
 using static FacturareWorkflow.Domain.WorkflowEvents.InvoicePaidEvent;
 using static FacturareWorkflow.Domain.Models.Client;
-FacturareWorkflow.Domain.Models.InvoiceChoice.UnvalidatedInvoice invoice1;
 
 namespace FacturareWorkflow.Domain.Workflows
 {

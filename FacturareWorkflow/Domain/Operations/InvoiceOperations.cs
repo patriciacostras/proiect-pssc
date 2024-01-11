@@ -8,18 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using static FacturareWorkflow.Domain.Models.InvoiceChoice;
 using static FacturareWorkflow.Domain.Models.Client;
+using ValidatedInvoice = FacturareWorkflow.Domain.Models.InvoiceChoice.ValidatedInvoice;
 
 namespace FacturareWorkflow.Domain.Operations
 {
     public static class InvoiceOperations
     {
-        public static Task<IInvoice> ValidateInvoice(Func<Client, TryAsync<bool>> checkClientExists, UnvalidatedInvoice Invoice) => Invoice.Invoice1.Select(ValidateInvoice(checkClientExists)).MatchAsync(
-            Right: ValidatedInvoice => new ValidatedInvoice(Invoice),
-            LeftAsync: errorMessage => Task.FromResult((IInvoice)new InvalidInvoice(Invoice, errorMessage)));
+        //public static Task<IInvoice> ValidateInvoice(Func<Client, TryAsync<bool>> checkClientExists, InvoiceChoice.UnvalidatedInvoice Invoice)
+        //{
+        //    //return Invoice.Invoice1.Select(ValidateInvoice(checkClientExists)).MatchAsync(
+        //    //Right: ValidatedInvoice => new ValidatedInvoice(Invoice),
+        //    //Left: errorMessage => Task.FromResult((IInvoice)new InvalidInvoice(Invoice, errorMessage)));
+        //}
 
-        private static Func<InvoiceChoice.UnvalidatedInvoice, EitherAsync<string, InvoiceChoice.ValidatedInvoice>> ValidateInvoice(Func<Client, TryAsync<bool>> checkClientExists) => unvalidatedInvoice => ValidateInvoice(checkClientExists, unvalidatedInvoice);
+       // private static Func<InvoiceChoice.UnvalidatedInvoice, EitherAsync<string, InvoiceChoice.ValidatedInvoice>> ValidateInvoice(Func<Client, TryAsync<bool>> checkClientExists) => unvalidatedInvoice => ValidatedInvoice(unvalidatedInvoice);
 
-        private static EitherAsync<string, ValidatedInvoice> ValidateInvoice1(Func<Client, TryAsync<bool>> checkClientExists, UnvalidatedInvoice unvalidatedInvoice) =>
+        private static EitherAsync<string, InvoiceChoice.ValidatedInvoice> ValidateInvoice1(Func<Client, TryAsync<bool>> checkClientExists, Models.UnvalidatedInvoice unvalidatedInvoice) =>
             from firstName in FirstName.TryParse(unvalidatedInvoice.FirstName).ToEitherAsync(() => $"Invalid first name {unvalidatedInvoice.FirstName}")
             from lastName in LastName.TryParse(unvalidatedInvoice.LastName).ToEitherAsync(() => $"Invalid last name {unvalidatedInvoice.LastName}")
             from city in City.TryParse(unvalidatedInvoice.City).ToEitherAsync(() => $"Invalid city {unvalidatedInvoice.City}")

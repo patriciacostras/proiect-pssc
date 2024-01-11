@@ -53,6 +53,10 @@ namespace FacturareWorkflow.Domain.Models
             {
                 Invoice1 = Invoice1;
             }
+
+            public ValidatedInvoice()
+            {
+            }
         }
 
         public record PaidInvoice : IInvoice
