@@ -1,0 +1,5 @@
+C:\Users\Patricia\Desktop\FacturareWorkflow\FacturareWorkflow\obj\Debug\net5.0\FacturareWorkflow.csproj.AssemblyReference.cache
+C:\Users\Patricia\Desktop\FacturareWorkflow\FacturareWorkflow\obj\Debug\net5.0\FacturareWorkflow.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Patricia\Desktop\FacturareWorkflow\FacturareWorkflow\obj\Debug\net5.0\FacturareWorkflow.AssemblyInfoInputs.cache
+C:\Users\Patricia\Desktop\FacturareWorkflow\FacturareWorkflow\obj\Debug\net5.0\FacturareWorkflow.AssemblyInfo.cs
+C:\Users\Patricia\Desktop\FacturareWorkflow\FacturareWorkflow\obj\Debug\net5.0\FacturareWorkflow.csproj.CoreCompileInputs.cache
