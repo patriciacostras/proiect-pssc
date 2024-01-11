@@ -28,6 +28,11 @@ namespace FacturareWorkflow.Domain.Models
             {
                 Invoice1 = Invoice1;
             }
+
+            internal bool IsValid()
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public record InvalidInvoice : IInvoice

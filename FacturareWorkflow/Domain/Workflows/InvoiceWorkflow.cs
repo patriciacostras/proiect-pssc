@@ -10,9 +10,6 @@ using static FacturareWorkflow.Domain.WorkflowEvents.InvoicePaidEvent;
 using static FacturareWorkflow.Domain.Models.Client;
 FacturareWorkflow.Domain.Models.InvoiceChoice.UnvalidatedInvoice invoice1;
 
-
-
-
 namespace FacturareWorkflow.Domain.Workflows
 {
     public class InvoiceWorkflow
@@ -30,6 +27,11 @@ namespace FacturareWorkflow.Domain.Workflows
                     whenValidatedInvoice: validatedInvoice => new InvoiceProcessingFailedEvent("Unexpected validated state"),
                     whenPaidInvoice: paidInvoice => new InvoiceProcessingSucceededEvent()
                 );
+        }
+
+        private Task<IInvoice> ValidatedInvoice(UnvalidatedInvoice unvalidatedInvoice)
+        {
+            throw new NotImplementedException();
         }
     }
 }

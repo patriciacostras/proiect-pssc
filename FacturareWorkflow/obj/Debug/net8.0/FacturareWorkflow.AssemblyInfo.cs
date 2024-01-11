@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FacturareWorkflow")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35ece6a574b789dca7ce805174d15470652dbc4d")]
 [assembly: System.Reflection.AssemblyProductAttribute("FacturareWorkflow")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FacturareWorkflow")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

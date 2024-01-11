@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FacturareWorkflow.Domain.Commands;
+using FacturareWorkflow.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,7 @@ namespace FacturareWorkflow.Domain.Workflows
 {
     public class OrderPlacementWorkflow
     {
+
         public async Task<IOrderPlacementEvent> ExecuteAsync(ProcessOrderCommand command)
         {
             if (!VerifyCart(command.Cart))
@@ -16,33 +19,37 @@ namespace FacturareWorkflow.Domain.Workflows
             EnterDeliveryDetails(command.DeliveryDetails);
             ChoosePaymentMethod(command.PaymentMethod);
 
-            bool isOrderConfirmed = ConfirmOrder();
+            bool isOrderConfirmed = ConfirmOrder(); // Corectat apelul ca metodă
             return isOrderConfirmed
                 ? new OrderPlacementSucceededEvent()
                 : new OrderPlacementFailedEvent("Confirmarea comenzii a eșuat.");
         }
 
+        private void ChoosePaymentMethod(PaymentMethod paymentMethod)
+        {
+            throw new NotImplementedException();
+        }
+
         private bool VerifyCart(ShoppingCart cart)
         {
-            // Logica de verificare a coșulu
             // Verifica dacă toate produsele din coș sunt disponibile și valide
             return cart.Items.All(item => item.IsAvailable && item.IsValid);
 
         }
-
         private void EnterDeliveryDetails(DeliveryDetails details)
         {
-            // Logica de introducere a detaliilor de livrare
+            Console.WriteLine($"Detalii livrare: {details.Address}, {details.City}, {details.ZipCode}");
         }
 
-        private void ChoosePaymentMethod(PaymentMethod method)
+        private void ChoosePaymentMethod(Payment method)
         {
-            // Logica de alegere a metodei de plată
+            Console.WriteLine($"Metoda de plată aleasă: {method}");
         }
 
         private bool ConfirmOrder()
         {
-            // Logica de confirmare a comenzii
+            Console.WriteLine("Comanda a fost confirmată.");
+            return true;
         }
     }
 

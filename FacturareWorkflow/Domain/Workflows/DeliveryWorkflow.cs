@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static FacturareWorkflow.Domain.WorkflowEvents.DeliveryEvent;
+using static FacturareWorkflow.Domain.Models.Order;
+using static FacturareWorkflow.Domain.Models.DeliveryMethod;
+using FacturareWorkflow.Domain.Models;
+using FacturareWorkflow.Domain.Commands;
 
 namespace FacturareWorkflow.Domain.Workflows
 {
@@ -30,32 +34,35 @@ namespace FacturareWorkflow.Domain.Workflows
 
         private void PrepareOrder(Order order)
         {
-            // Logica de pregătire a comenzii
+            Console.WriteLine($"Comanda {order.Id} este pregătită pentru livrare.");
         }
 
         private bool ChooseDeliveryMethod(DeliveryMethod method)
         {
-            // Logica de alegere a metodei de livrare
+            Console.WriteLine($"Metoda de livrare aleasă este: {method}.");
+            return true;
         }
 
         private bool ProcessDelivery(Order order)
         {
-            // Logica de procesare a livrării
+            Console.WriteLine($"Procesarea livrării pentru comanda {order.Id}.");
+            return order.DeliveryAgent != null;
         }
 
         private void TrackDelivery(Order order)
         {
-            // Logica de urmărire a livrării
+            Console.WriteLine($"Comanda {order.Id} este în tranzit.");
         }
 
         private void DeliverOrder(Order order)
         {
-            // Logica de livrare a comenzii
+            Console.WriteLine($"Comanda {order.Id} a fost livrată la adresa {order.DeliveryAddress}.");
         }
 
         private bool ConfirmReceipt()
         {
-            // Logica de confirmare a recepției
+            Console.WriteLine("Clientul a confirmat recepția comenzii.");
+            return true;
         }
     }
 
