@@ -1,7 +1,7 @@
 # PSSC Project
 
 ## Description
-This project is developed for the course **PSSC (Programming and Concurrent Software Systems)** and aims to build a software application using principles of concurrent and distributed programming.
+This project is developed for the course **PSSC** and aims to build a software application using principles of concurrent and distributed programming.
 
 ## Technologies Used
 - **Programming Language:** C#
